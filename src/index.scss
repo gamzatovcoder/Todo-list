@@ -1,0 +1,24 @@
+*,
+*::before,
+*::after {
+  background-color: transparent;
+  box-sizing: border-box;
+  font-size: 10px;
+  text-decoration: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+}
+*:focus {
+  outline: none;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
