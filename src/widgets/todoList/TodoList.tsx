@@ -7,11 +7,13 @@ interface Props {
 
 const TodoList = ({ todoList }: Props) => {
   return (
-    <div className={style["todo-list"]}>
+    <ul className={style["todo-list"]}>
       {todoList.map((todoItem) => (
-        <TodoItem value={todoItem} />
+        <li className={style["todo-list__item"]}>
+          <TodoItem value={todoItem} />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 
