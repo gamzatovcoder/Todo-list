@@ -1,15 +1,16 @@
 import { useRef } from "react";
 import style from "./todoInput.module.scss";
+import { useAppDispatch } from "@/store/hooks";
+import { addTodo } from "@/store/slices/todoListSlice";
 
-interface Props {
-  addTodo: (todoItemValue: string) => void;
-}
+const TodoInput = () => {
+  const dispatch = useAppDispatch();
 
-const TodoInput = ({ addTodo }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleAddTodo = function () {
-    addTodo(inputRef.current.value);
+    const inputValue = inputRef.current.value;
+    dispatch(addTodo(inputValue));
   };
 
   return (

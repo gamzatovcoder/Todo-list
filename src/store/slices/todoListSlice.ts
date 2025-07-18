@@ -8,11 +8,17 @@ export const todoListSlice = createSlice({
   name: "todoList",
   initialState,
   reducers: {
-    addTodoItem: (state, action: PayloadAction<number>) => {},
+    addTodo: (state: string[], action: PayloadAction<string>) => {
+      state.push(action.payload);
+    },
+    deleteTodoByValue: (state: string[], action: PayloadAction<string>) => {
+      const indexTodo = state.indexOf(action.payload);
+      state.splice(indexTodo, 1);
+    },
   },
 });
 
-export const { addTodoItem } = todoListSlice.actions;
+export const { addTodo, deleteTodoByValue } = todoListSlice.actions;
 
 export const todoList = (state: RootState) => state.todoList;
 

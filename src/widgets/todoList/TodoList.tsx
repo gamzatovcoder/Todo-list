@@ -1,16 +1,15 @@
 import style from "./todoList.module.scss";
 import TodoItem from "../todoItem/TodoItem";
+import { useAppSelector } from "@/store/hooks";
 
-interface Props {
-  todoList: string[];
-}
+const TodoList = () => {
+  const todoList = useAppSelector((store) => store.todoList);
 
-const TodoList = ({ todoList }: Props) => {
   return (
     <ul className={style["todo-list"]}>
-      {todoList.map((todoItem) => (
+      {todoList.map((todo) => (
         <li className={style["todo-list__item"]}>
-          <TodoItem value={todoItem} />
+          <TodoItem value={todo} />
         </li>
       ))}
     </ul>
