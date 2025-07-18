@@ -10,7 +10,7 @@ const TodoInput = () => {
 
   const handleAddTodo = function () {
     const inputValue = inputRef.current.value;
-    dispatch(addTodo(inputValue));
+    dispatch(addTodo({ id: Date.now(), value: inputValue }));
   };
 
   return (

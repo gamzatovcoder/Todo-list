@@ -7,9 +7,9 @@ const TodoList = () => {
 
   return (
     <ul className={style["todo-list"]}>
-      {todoList.map((todo) => (
+      {todoList.map(({ id, value }) => (
         <li className={style["todo-list__item"]}>
-          <TodoItem value={todo} />
+          <TodoItem id={id} value={value} />
         </li>
       ))}
     </ul>

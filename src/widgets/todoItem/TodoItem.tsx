@@ -3,20 +3,17 @@ import style from "./todoItem.module.scss";
 import downArrowIcon from "@/assets/icons/downArrow.svg";
 import trashIcon from "@/assets/icons/trash.svg";
 import { useAppDispatch } from "@/store/hooks";
-import { deleteTodoByValue } from "@/store/slices/todoListSlice";
+import { deleteTodoById } from "@/store/slices/todoListSlice";
+import { Todo } from "@/types/todo";
 
-interface Props {
-  value: string;
-}
-
-const TodoItem = ({ value }: Props) => {
+const TodoItem = ({ id, value }: Todo) => {
   const dispatch = useAppDispatch();
   const handleDeleteTodo = function () {
-    dispatch(deleteTodoByValue(value));
+    dispatch(deleteTodoById(id));
   };
   const [isEntireText, setIsEntireText] = useState(false);
   const ShowEntireText = function (): string {
-    if (!isEntireText) {
+    if (isEntireText) {
       return `${style["todo-item_visible"]}`;
     } else {
       return "";
